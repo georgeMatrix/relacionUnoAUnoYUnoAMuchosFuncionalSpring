@@ -22,4 +22,9 @@ public class ClienteServiceImpl implements ClienteService {
     public Cliente saveCliente(Cliente cliente) {
         return clienteRepository.save(cliente);
     }
+
+    @Override
+    public Cliente clienteById(Long id) {
+        return clienteRepository.findById(id).orElse(null);
+    }
 }

@@ -1,6 +1,7 @@
 package com.formatoweb.relacionesunounoyunomuchos.controller;
 
 import com.formatoweb.relacionesunounoyunomuchos.converter.ProductoConverter;
+import com.formatoweb.relacionesunounoyunomuchos.entity.Cliente;
 import com.formatoweb.relacionesunounoyunomuchos.entity.Producto;
 import com.formatoweb.relacionesunounoyunomuchos.models.ProductoModel;
 import com.formatoweb.relacionesunounoyunomuchos.service.producto.ProductoService;
@@ -28,5 +29,24 @@ public class ProductoController {
     public Producto saveProducto(@RequestBody ProductoModel productoModel){
         Producto producto = productoConverter.modelToEntity(productoModel);
         return productoService.saveProducto(producto);
+    }
+
+    @GetMapping("/productos/{id}")
+    public ProductoModel getProductoById(@PathVariable Long id){
+        return productoConverter.entityToModel(productoService.getProductoById(id));
+    }
+
+    @PutMapping("/productos/{id}")
+    public ProductoModel updateProducto(@PathVariable Long id, @RequestBody ProductoModel productoModelNew){
+        Producto prodcutoOld = productoService.getProductoById(id);
+        prodcutoOld.setId(productoModelNew.getId());
+        prodcutoOld.setNombre(productoModelNew.getNombre());
+        prodcutoOld.setClave(productoModelNew.getClave());
+        prodcutoOld.setPrecio(productoModelNew.getPrecio());
+        Cliente cliente = new Cliente();
+        cliente.setId(productoModelNew.getIdCliente());
+        prodcutoOld.setCliente(cliente);
+        productoService.saveProducto(prodcutoOld);
+        return productoConverter.entityToModel(prodcutoOld);
     }
 }

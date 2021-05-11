@@ -4,6 +4,7 @@ public class DatosFiscalesModel {
     private Long id;
     private String rfc;
     private String curp;
+    private Long bandera;
 
     public Long getId() {
         return id;
@@ -11,6 +12,14 @@ public class DatosFiscalesModel {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getBandera() {
+        return bandera;
+    }
+
+    public void setBandera(Long bandera) {
+        this.bandera = bandera;
     }
 
     public String getRfc() {

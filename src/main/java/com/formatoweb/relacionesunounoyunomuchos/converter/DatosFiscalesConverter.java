@@ -12,6 +12,16 @@ public class DatosFiscalesConverter {
         datosFiscales.setId(datosFiscalesModel.getId());
         datosFiscales.setRfc(datosFiscalesModel.getRfc());
         datosFiscales.setCurp(datosFiscalesModel.getCurp());
+        datosFiscales.setBandera(datosFiscalesModel.getId());
         return datosFiscales;
+    }
+
+    public DatosFiscalesModel entityToModel(DatosFiscales datosFiscales){
+        DatosFiscalesModel datosFiscalesModel = new DatosFiscalesModel();
+        datosFiscalesModel.setId(datosFiscales.getId());
+        datosFiscalesModel.setCurp(datosFiscales.getCurp());
+        datosFiscalesModel.setRfc(datosFiscales.getRfc());
+        datosFiscalesModel.setBandera(datosFiscales.getId());
+        return datosFiscalesModel;
     }
 }

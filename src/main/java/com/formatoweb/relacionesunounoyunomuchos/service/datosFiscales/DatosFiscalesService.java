@@ -7,4 +7,5 @@ import java.util.List;
 public interface DatosFiscalesService {
     List<DatosFiscales> datosFiscalesList();
     DatosFiscales saveDatosFiscales(DatosFiscales datosFiscales);
+    DatosFiscales getDatosFiscalesById(Long id);
 }

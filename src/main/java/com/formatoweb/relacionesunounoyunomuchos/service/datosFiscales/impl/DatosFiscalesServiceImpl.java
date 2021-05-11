@@ -22,4 +22,9 @@ public class DatosFiscalesServiceImpl implements DatosFiscalesService {
     public DatosFiscales saveDatosFiscales(DatosFiscales datosFiscales) {
         return datosFiscalesRepository.save(datosFiscales);
     }
+
+    @Override
+    public DatosFiscales getDatosFiscalesById(Long id) {
+        return datosFiscalesRepository.findById(id).orElse(null);
+    }
 }

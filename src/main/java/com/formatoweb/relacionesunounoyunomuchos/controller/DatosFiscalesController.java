@@ -38,8 +38,22 @@ public class DatosFiscalesController {
         }catch (DataAccessException e){
             response.put("mensaje", "hubo algun error al insertar dato");
             response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+            return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         response.put("mensaje", "Su dato fue insertado correctamente en la base de datos");
         return new ResponseEntity<>(response, HttpStatus.CREATED);
+    }
+    @GetMapping("/datos-fiscales/{id}")
+    public DatosFiscalesModel getDatosFiscalesById(@PathVariable Long id){
+        return datosFiscalesConverter.entityToModel(datosFiscalesService.getDatosFiscalesById(id));
+    }
+
+    @PutMapping("datos-fiscales/{id}")
+    public DatosFiscalesModel updateDatosFiscales(@RequestBody DatosFiscalesModel datosFiscalesModelNew, @PathVariable Long id){
+        DatosFiscales datosFiscalesOld = datosFiscalesService.getDatosFiscalesById(id);
+        datosFiscalesOld.setId(datosFiscalesModelNew.getId());
+        datosFiscalesOld.setRfc(datosFiscalesModelNew.getRfc());
+        datosFiscalesOld.setCurp(datosFiscalesModelNew.getCurp());
+        return datosFiscalesConverter.entityToModel(datosFiscalesService.saveDatosFiscales(datosFiscalesOld));
     }
 }

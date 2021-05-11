@@ -12,6 +12,7 @@ public class DatosFiscales {
     private String rfc;
     private String curp;
     private Cliente cliente;
+    private Long bandera;
 
     @Id
     @Column(name = "id")
@@ -21,6 +22,16 @@ public class DatosFiscales {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    @Basic
+    @Column(name = "bandera")
+    public Long getBandera() {
+        return bandera;
+    }
+
+    public void setBandera(Long bandera) {
+        this.bandera = bandera;
     }
 
     @Basic

@@ -18,4 +18,13 @@ public class ProductoConverter {
         producto.setCliente(cliente);
         return producto;
     }
+    public ProductoModel entityToModel(Producto producto){
+        ProductoModel productoModel = new ProductoModel();
+        productoModel.setId(producto.getId());
+        productoModel.setClave(producto.getClave());
+        productoModel.setNombre(producto.getNombre());
+        productoModel.setPrecio(producto.getPrecio());
+        productoModel.setIdCliente(producto.getCliente().getId());
+        return productoModel;
+    }
 }
