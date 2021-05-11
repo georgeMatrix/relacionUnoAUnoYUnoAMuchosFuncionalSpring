@@ -1,7 +1,7 @@
 package com.formatoweb.relacionesunounoyunomuchos.controller;
 
 import com.formatoweb.relacionesunounoyunomuchos.converter.ProductoConverter;
-import com.formatoweb.relacionesunounoyunomuchos.entity.Cliente;
+import com.formatoweb.relacionesunounoyunomuchos.entity.Provedor;
 import com.formatoweb.relacionesunounoyunomuchos.entity.Producto;
 import com.formatoweb.relacionesunounoyunomuchos.models.ProductoModel;
 import com.formatoweb.relacionesunounoyunomuchos.service.producto.ProductoService;
@@ -43,9 +43,9 @@ public class ProductoController {
         prodcutoOld.setNombre(productoModelNew.getNombre());
         prodcutoOld.setClave(productoModelNew.getClave());
         prodcutoOld.setPrecio(productoModelNew.getPrecio());
-        Cliente cliente = new Cliente();
-        cliente.setId(productoModelNew.getIdCliente());
-        prodcutoOld.setCliente(cliente);
+        Provedor provedor = new Provedor();
+        provedor.setId(productoModelNew.getIdProvedor());
+        prodcutoOld.setProvedor(provedor);
         productoService.saveProducto(prodcutoOld);
         return productoConverter.entityToModel(prodcutoOld);
     }

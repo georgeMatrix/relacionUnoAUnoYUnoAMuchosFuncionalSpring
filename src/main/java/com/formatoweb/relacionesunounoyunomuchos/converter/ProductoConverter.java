@@ -1,6 +1,6 @@
 package com.formatoweb.relacionesunounoyunomuchos.converter;
 
-import com.formatoweb.relacionesunounoyunomuchos.entity.Cliente;
+import com.formatoweb.relacionesunounoyunomuchos.entity.Provedor;
 import com.formatoweb.relacionesunounoyunomuchos.entity.Producto;
 import com.formatoweb.relacionesunounoyunomuchos.models.ProductoModel;
 import org.springframework.stereotype.Component;
@@ -13,9 +13,9 @@ public class ProductoConverter {
         producto.setClave(productomodel.getClave());
         producto.setNombre(productomodel.getNombre());
         producto.setPrecio(productomodel.getPrecio());
-        Cliente cliente = new Cliente();
-        cliente.setId(productomodel.getIdCliente());
-        producto.setCliente(cliente);
+        Provedor provedor = new Provedor();
+        provedor.setId(productomodel.getIdProvedor());
+        producto.setProvedor(provedor);
         return producto;
     }
     public ProductoModel entityToModel(Producto producto){
@@ -24,7 +24,7 @@ public class ProductoConverter {
         productoModel.setClave(producto.getClave());
         productoModel.setNombre(producto.getNombre());
         productoModel.setPrecio(producto.getPrecio());
-        productoModel.setIdCliente(producto.getCliente().getId());
+        productoModel.setIdProvedor(producto.getProvedor().getId());
         return productoModel;
     }
 }

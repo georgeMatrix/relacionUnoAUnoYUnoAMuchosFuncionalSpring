@@ -1,6 +1,6 @@
 package com.formatoweb.relacionesunounoyunomuchos.models;
 
-public class ClienteModel {
+public class ProvedorModel {
     private Long id;
     private String nombre;
     private String apellido;

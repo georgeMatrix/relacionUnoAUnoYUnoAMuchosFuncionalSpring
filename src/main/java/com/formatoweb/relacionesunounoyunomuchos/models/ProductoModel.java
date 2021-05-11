@@ -5,7 +5,7 @@ public class ProductoModel {
     private String nombre;
     private String clave;
     private Integer precio;
-    private Long idCliente;
+    private Long idProvedor;
 
     public Long getId() {
         return id;
@@ -39,11 +39,11 @@ public class ProductoModel {
         this.precio = precio;
     }
 
-    public Long getIdCliente() {
-        return idCliente;
+    public Long getIdProvedor() {
+        return idProvedor;
     }
 
-    public void setIdCliente(Long idCliente) {
-        this.idCliente = idCliente;
+    public void setIdProvedor(Long idProvedor) {
+        this.idProvedor = idProvedor;
     }
 }

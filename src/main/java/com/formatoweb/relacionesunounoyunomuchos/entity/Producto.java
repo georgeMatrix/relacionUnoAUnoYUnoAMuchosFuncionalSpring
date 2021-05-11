@@ -11,7 +11,7 @@ public class Producto {
     private String nombre;
     private String clave;
     private Integer precio;
-    private Cliente cliente;
+    private Provedor provedor;
 
     @Id
     @Column(name = "id")
@@ -72,12 +72,12 @@ public class Producto {
 
     @ManyToOne
     @JsonBackReference
-    @JoinColumn(name = "id_cliente", referencedColumnName = "id", nullable = false)
-    public Cliente getCliente() {
-        return cliente;
+    @JoinColumn(name = "id_provedor", referencedColumnName = "id", nullable = false)
+    public Provedor getProvedor() {
+        return provedor;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setProvedor(Provedor provedor) {
+        this.provedor = provedor;
     }
 }

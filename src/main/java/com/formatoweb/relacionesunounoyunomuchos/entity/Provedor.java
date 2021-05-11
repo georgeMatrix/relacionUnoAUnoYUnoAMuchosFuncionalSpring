@@ -7,7 +7,8 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-public class Cliente {
+@Table(name = "provedor", schema = "producto-cliente-03052021", catalog = "")
+public class Provedor {
     private Long id;
     private String nombre;
     private String apellido;
@@ -71,12 +72,12 @@ public class Cliente {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Cliente cliente = (Cliente) o;
-        return Objects.equals(id, cliente.id) &&
-                Objects.equals(nombre, cliente.nombre) &&
-                Objects.equals(apellido, cliente.apellido) &&
-                Objects.equals(edad, cliente.edad) &&
-                Objects.equals(email, cliente.email);
+        Provedor provedor = (Provedor) o;
+        return Objects.equals(id, provedor.id) &&
+                Objects.equals(nombre, provedor.nombre) &&
+                Objects.equals(apellido, provedor.apellido) &&
+                Objects.equals(edad, provedor.edad) &&
+                Objects.equals(email, provedor.email);
     }
 
     @Override
@@ -84,7 +85,7 @@ public class Cliente {
         return Objects.hash(id, nombre, apellido, edad, email);
     }
 
-    @OneToOne(mappedBy = "cliente")
+    @OneToOne(mappedBy = "provedor")
     @JsonManagedReference
     public DatosFiscales getDatosFiscales() {
         return datosFiscales;
@@ -94,7 +95,7 @@ public class Cliente {
         this.datosFiscales = datosFiscales;
     }
 
-    @OneToMany(mappedBy = "cliente")
+    @OneToMany(mappedBy = "provedor")
     @JsonManagedReference
     public List<Producto> getProductos() {
         return productos;

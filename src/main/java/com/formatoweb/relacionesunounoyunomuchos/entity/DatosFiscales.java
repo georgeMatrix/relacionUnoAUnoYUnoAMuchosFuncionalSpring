@@ -11,7 +11,7 @@ public class DatosFiscales {
     private Long id;
     private String rfc;
     private String curp;
-    private Cliente cliente;
+    private Provedor provedor;
     private Long bandera;
 
     @Id
@@ -72,11 +72,11 @@ public class DatosFiscales {
     @OneToOne
     @JsonBackReference
     @JoinColumn(name = "id", referencedColumnName = "id", nullable = false)
-    public Cliente getCliente() {
-        return cliente;
+    public Provedor getProvedor() {
+        return provedor;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setProvedor(Provedor provedor) {
+        this.provedor = provedor;
     }
 }
